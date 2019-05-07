@@ -10,7 +10,7 @@ const validationSchema = yup.object().shape({
     .string()
     .email()
     .required(),
-  age: yup.number().required(),
+  dob: yup.number().required(),
 });
 
 const Input = props => {
@@ -34,7 +34,7 @@ const MyForm = ({ onSubmit }) => {
 
   return (
     <Formik
-      initialValues={{ name: '', email: '' }}
+      initialValues={{ name: '', email: '', dob: '' }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
       onReset={() => onSubmit(null)}
@@ -43,7 +43,7 @@ const MyForm = ({ onSubmit }) => {
           <Form>
             <Field name="name" component={Input} />
             <Field type="email" name="email" component={Input} />
-            <Field type="number" name="age" component={Input} />
+            <Field name="dob" component={Input} />
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
